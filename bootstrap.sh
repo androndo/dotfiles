@@ -9,10 +9,6 @@ fi
 
 ln -sf "${HOME}/dotfiles/shell.sh" "${HOME}/.shell.sh"
 
-
-add_source_cmd='\n# Source our shell configuration if it exists. \
-[ -r ~/.shell.sh ] && source ~/.shell.sh \
-'
-
-echo ${add_source_cmd} >> ${HOME}/.bashrc
-echo ${add_source_cmd} >> ${HOME}/.zshrc
+add_source_cmd='\n# Source our shell configuration if it exists.\n[ -r ~/.shell.sh ] && source ~/.shell.sh\n'
+echo -e ${add_source_cmd} >> ${HOME}/.bashrc
+echo -e ${add_source_cmd} >> ${HOME}/.zshrc
