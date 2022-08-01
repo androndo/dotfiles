@@ -1,0 +1,24 @@
+aliases_file="${0}"
+save_alias() {
+    new_alias=$1
+    alias_name=$(echo ${new_alias} | cut -d'=' -f 1)
+    alias_value=$(echo ${new_alias} | cut -d'=' -f2-)
+    if grep -q -E "${alias_name}=(.*)$" ${aliases_file}; then
+      sed -E -e "s/${alias_name}=(.*)$/${alias_name}='${alias_value}'/g" ${aliases_file} > "${aliases_file}.tmp" && mv "${aliases_file}.tmp" "${aliases_file}"
+      echo "alias updated"
+    else
+      echo "alias ${alias_name}='${alias_value}'" >> ${aliases_file}
+      echo "alias added"
+    fi
+    alias "${alias_name}=${alias_value}"
+}
+alias sal=save_alias
+
+alias cls='clear'
+
+alias git-undo='git reset --soft HEAD^'
+
+alias k='kubectl'
+alias kns='k -n default'
+alias h='helm'
+alias tf='terraform'
