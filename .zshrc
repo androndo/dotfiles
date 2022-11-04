@@ -119,13 +119,8 @@ fi
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
-# ZSH_HIGHLIGHT_HIGHLIGHTERS=(main regexp)
-
-# typeset -A ZSH_HIGHLIGHT_REGEXP
-# ZSH_HIGHLIGHT_REGEXP+=('^cmsa-x-4*' fg=red,bold)
-
-# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # Source our shell configuration if it exists.
 [ -r ~/.shell.sh ] && source ~/.shell.sh
+
+source ~/.dotfiles/cisco_vpn.zshrc
 
