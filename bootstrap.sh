@@ -37,7 +37,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     brew install --cask rectangle
     # Dev tools
     brew install git, git-gui, pwgen
-    brew install --cask visual-studio-code
+    brew install --cask iterm2, visual-studio-code
 else
     echo This OS_TYPE=$OSTYPE is not supported yet, feel free to add ...
 fi
