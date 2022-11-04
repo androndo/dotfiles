@@ -2,6 +2,7 @@
 
 set -e
 
+echo \#\#Install dotfiles
 if [ ! -d ~/.dotfiles ]; then
   dir="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
   ln -sf "${dir}" ${HOME}/.dotfiles
@@ -23,3 +24,20 @@ for config_file in ${config_files[@]}; do
         echo "${source_command}" >> "${config_file}"
     fi
 done
+
+
+echo \#\#Install OS-specific apps
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    # ...
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    # Mac OSX
+    # Package manager brew
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    # Windows management
+    brew install --cask rectangle
+    # Dev tools
+    brew install git, git-gui, pwgen
+    brew install --cask visual-studio-code
+else
+    echo This OS_TYPE=$OSTYPE is not supported yet, feel free to add ...
+fi
