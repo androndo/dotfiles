@@ -24,7 +24,14 @@ alias h='helm'
 alias tf='terraform'
 alias git_undo='git reset --soft HEAD~'
 
-alias ls_notes='echo "Please use: show_note <note>\nAvailible notes:";ls -l ${HOME}/dotfiles/notes/'
-show_note() {
-  cat ${HOME}/dotfiles/notes/$1
+note() {
+  mode=$1
+  notes_dir=${HOME}/dotfiles/notes
+  case "$mode" in
+      list|ls) echo "Availible notes:";ls ${notes_dir}/;;
+      show) cat ${notes_dir}/$1;;
+      new|create|edit) ${EDITOR:-vim} $1;;
+      *) echo "usage: $0 list/ls, new/create/edit/show <note>" >&2
+         ;;
+  esac
 }
