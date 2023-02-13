@@ -1,0 +1,6 @@
+Encrypt:
+ansible-vault encrypt_string --encrypt-vault-id=<id> --vault-password-file=</path/to/file>.vault --stdin-name '<secret_name>'
+
+Check:  
+echo '$ANSIBLE_VAULT;1.2;AES256;<id> \
+<encrypted_secret_without_newlines>' | ansible-vault decrypt

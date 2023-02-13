@@ -23,3 +23,8 @@ alias kns='k -n default'
 alias h='helm'
 alias tf='terraform'
 alias git_undo='git reset --soft HEAD~'
+
+alias ls_notes='echo "Please use: show_note <note>\nAvailible notes:";ls -l ${HOME}/dotfiles/notes/'
+show_note() {
+  cat ${HOME}/dotfiles/notes/$1
+}
