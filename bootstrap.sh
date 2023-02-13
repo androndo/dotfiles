@@ -36,8 +36,10 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Windows management
     brew install --cask rectangle
     # Dev tools
-    brew install git, git-gui, pwgen
-    brew install --cask iterm2, visual-studio-code
+    brew install git git-gui jq wget curl telnet pwgen docker
+    brew install --cask iterm2 visual-studio-code
+    # Other
+    brew install --cask google-chrome
 else
     echo This OS_TYPE=$OSTYPE is not supported yet, feel free to add ...
 fi
