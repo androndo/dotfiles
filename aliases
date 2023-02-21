@@ -28,9 +28,9 @@ note() {
   mode=$1
   notes_dir=${HOME}/dotfiles/notes
   case "$mode" in
-      list|ls) echo "Availible notes:";ls ${notes_dir}/;;
-      show) cat ${notes_dir}/$1;;
-      new|create|edit) ${EDITOR:-vim} $1;;
+      list|ls) echo "Availible notes (${notes_dir}):";ls -1 ${notes_dir}/;;
+      show) cat ${notes_dir}/$2;;
+      new|create|edit) ${EDITOR:-vim} ${notes_dir}/$2;;
       *) echo "usage: $0 list/ls, new/create/edit/show <note>" >&2
          ;;
   esac
