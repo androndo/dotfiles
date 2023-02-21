@@ -1,0 +1,3 @@
+PACKAGE=lsof
+wget https://old-releases.ubuntu.com/releases/focal/ubuntu-20.04.4-desktop-amd64.manifest -q -O - | grep $PACKAGE
+
